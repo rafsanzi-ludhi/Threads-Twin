@@ -24,7 +24,9 @@ export default function RootLayout({
     <ClerkProvider>
           <html lang='en'>
               {/* apply the font across all files immeddiately across files */}
-        <body className={`${inter.className} bg-dark-1`}>{children}</body> 
+        <body className={`${inter.className} bg-dark-1`}>
+          {children}
+        </body> 
       </html>
     </ClerkProvider>
   );
