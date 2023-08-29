@@ -29,9 +29,9 @@ export default function RootLayout({
         <body className={inter.className}>
           <Topbar />
 
-          <main>
+          <main className='flex flex-row'> {/* flex flex-row left and right sidebars style - default is column afterall*/}
             <LeftSidebar />
-
+ 
             <section className = "main-container">
               <div className='w-full max-w-4xl'>
                 {children}
