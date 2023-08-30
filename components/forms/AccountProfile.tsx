@@ -88,7 +88,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                     </FormItem>
                 )}
                 />
-                <Button type="submit">Submit</Button>
+                <Button type="submit" className="lightblue">Submit</Button>
             </form>
         </Form>
   );
