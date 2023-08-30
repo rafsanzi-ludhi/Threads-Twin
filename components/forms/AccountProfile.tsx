@@ -16,6 +16,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { UserValidation } from "@/lib/validations/user";
 import * as z from "zod"
 import Image from "next/image";
+import { ChangeEvent } from "react";
 
 interface Props {
   user: {
@@ -40,6 +41,10 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
       bio: "",
     },
   });
+    
+    const handleImage = (e: ChangeEvent, fieldChange: (value: string) => void) => {
+        e.preventDefault();
+    }
     
     function onSubmit(values: z.infer<typeof UserValidation>) {
         // Do something with the form values.
@@ -72,19 +77,22 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                                 <Image
                                     src="/assets/profile.svg"   
                                     alt="profile_photo"
-                                    width={24}
-                                    height={24}
+                                    width={20}
+                                    height={20}
                                     className="object-contain"
                                 />
                             )}    
                         </FormLabel>
-                    <FormControl>
-                        <Input placeholder="shadcn" {...field} />
+                    <FormControl className="flex-1 text-base-semibold text-grey-200">
+                            <Input
+                                type="file"
+                                accept="image/*"
+                                placeholder="Upload a photo"
+                                className="account-form_image-input red-color"
+                                onChange={(e) => handleImage(e, field.onChange)}
+                            />
                     </FormControl>
-                    <FormDescription>
-                        This is your public display name.
-                    </FormDescription>
-                    <FormMessage />
+               
                     </FormItem>
                 )}
                 />

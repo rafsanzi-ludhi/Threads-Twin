@@ -6,6 +6,14 @@
   background-color: rgb(74, 149, 124);
 }
 
+.lightblueBorder {
+  border-color: rgb(74, 149, 124);
+}
+
+.red-color {
+  color: rgb(255, 0, 0);
+} 
+
 @layer components {
   
 
