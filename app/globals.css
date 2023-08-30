@@ -3,15 +3,19 @@
 @tailwind utilities;
 
 .lightblue {
-  background-color: rgb(74, 149, 124);
+  background-color: rgb(74, 149, 124) !important;
+}
+
+.blue {
+  background-color: blue !important;
 }
 
 .lightblueBorder {
-  border-color: rgb(74, 149, 124);
+  border-color: rgb(74, 149, 124) !important;
 }
 
 .red-color {
-  color: rgb(255, 0, 0);
+  color: rgb(255, 0, 0) !important;
 } 
 
 @layer components {
