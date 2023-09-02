@@ -52,8 +52,8 @@ function PostThread() {
     }
     });    
     
-    const onSubmit = () => {
-
+    const onSubmit = async () => {
+        // await createThread()
     }
     
     return (
