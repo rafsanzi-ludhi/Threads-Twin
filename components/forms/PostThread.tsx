@@ -24,6 +24,7 @@ import { usePathname, useRouter } from "next/navigation";
 
 // import { updateUser } from "@/lib/actions/user.actions";
 import { ThreadValidation } from "@/lib/validations/thread";
+import { createThread } from "@/lib/actions/thread.actions";
 
 interface Props {
   user: {
@@ -40,7 +41,7 @@ interface Props {
 
 
 
-function PostThread() {
+function PostThread(    { userId }: { userId: string }) {
     const router = useRouter();
     const pathname = usePathname();
 
@@ -48,12 +49,22 @@ function PostThread() {
     resolver: zodResolver(ThreadValidation),
     defaultValues: {
         thread: '',
-        // accountId: userId, //!should be coming from props but not right now
+        accountId: userId, //!should be coming from props but not right now
     }
     });    
     
-    const onSubmit = async () => {
-        // await createThread()
+    const onSubmit = async (values: z.infer<typeof ThreadValidation>) => {
+        await createThread({
+            text: values.thread,
+            author: userId, //!should be coming from props but not right now
+            communityId: null,
+            path: pathname,
+
+        })
+
+
+        //once thread is created, redirect to the thread page
+        router.push("/")
     }
     
     return (
