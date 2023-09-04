@@ -23,6 +23,7 @@ export async function createThread({ text, author, communityId, path }: Params) 
         }); //this is a mongoose model
 
         //update user model
+        
         await User.findByIdAndUpdate(author, {
             $push: { threads: createdThread._id }
         })

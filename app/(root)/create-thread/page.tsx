@@ -1,28 +1,23 @@
-import PostThread from "@/components/forms/PostThread";
-import { fetchUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
+import PostThread from "@/components/forms/PostThread";
+
 async function Page() {
-    const user = await currentUser();
+  const user = await currentUser();
+  if (!user) return null;
 
-    // TODO: uncomment these when onboarding component is ready
+  // Removed the fetchUser related code
+  // if (!userInfo?.onboarded) redirect("/onboarding");
 
-    // if (!user) return null;
-
-    // const userInfo = await fetchUser(user.id);
-
-    // if (!userInfo?.onboarded) redirect("/onboarding");
-
-    return (
-        <>
-            <h1 className="head-text">Create Thread</h1>
-
-            {/* <PostThread userId={userInfo._id } /> */}
-            <PostThread />
-
-        </>
-    )
+  return (
+    <>
+      <h1 className='head-text'>Create Thread</h1>
+      
+      {/* If you're using userInfo._id elsewhere, consider replacing it */}
+      <PostThread userId={user.id} />
+    </>
+  );
 }
 
 export default Page;
