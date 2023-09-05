@@ -1,16 +1,17 @@
-import { currentUser } from "@clerk/nextjs";
-import { redirect } from "next/navigation";
+import { currentUser } from "@clerk/nextjs"; // Importing Clerk's current user function
+import { redirect } from "next/navigation";  // Importing Next.js redirect function
 
-import { fetchUser } from "@/lib/actions/user.actions";
-import AccountProfile from "@/components/forms/AccountProfile";
+import { fetchUser } from "@/lib/actions/user.actions"; // Importing a function to fetch user data
+import AccountProfile from "@/components/forms/AccountProfile"; // Importing the AccountProfile component
 
 async function Page() {
-  const user = await currentUser();
-  if (!user) return null; // to avoid typescript warnings
+  const user = await currentUser(); // Fetching the current user
+  if (!user) return null; // Exit if no user, mainly to avoid TypeScript warnings
 
-  const userInfo = await fetchUser(user.id);
-  if (userInfo?.onboarded) redirect("/");
+  const userInfo = await fetchUser(user.id); // Fetching additional user info
+  if (userInfo?.onboarded) redirect("/"); // Redirect to home if user is already onboarded
 
+  // Mapping user data from both Clerk and the fetched data
   const userData = {
     id: user.id,
     objectId: userInfo?._id,
@@ -20,11 +21,12 @@ async function Page() {
     image: userInfo ? userInfo?.image : user.imageUrl,
   };
 
+  // Returning the JSX for rendering
   return (
     <main className='mx-auto flex max-w-3xl flex-col justify-start px-10 py-20'>
       <h1 className='head-text'>Onboarding</h1>
       <p className='mt-3 text-base-regular text-light-2'>
-        Complete your profile now, to use Threds.
+        Complete your profile now, to use Threads.
       </p>
 
       <section className='mt-9 bg-dark-2 p-10'>
