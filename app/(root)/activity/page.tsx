@@ -1,19 +1,20 @@
-import Image from "next/image";
-import Link from "next/link";
-import { currentUser } from "@clerk/nextjs";
-import { redirect } from "next/navigation";
+import Image from "next/image"; // Import Next.js Image component for optimized image loading
+import Link from "next/link"; // Import Next.js Link for client-side navigation
+import { currentUser } from "@clerk/nextjs"; // Import Clerk function to get the current user
+import { redirect } from "next/navigation"; // Import Next.js redirect function
 
-import { fetchUser, getActivity } from "@/lib/actions/user.actions";
+import { fetchUser, getActivity } from "@/lib/actions/user.actions"; // Import user-related API actions
 
 async function Page() {
-  const user = await currentUser();
-  if (!user) return null;
+  const user = await currentUser(); // Get the current user using Clerk
+  if (!user) return null; // If no user, return null
 
-  const userInfo = await fetchUser(user.id);
-  if (!userInfo?.onboarded) redirect("/onboarding");
+  const userInfo = await fetchUser(user.id); // Fetch additional user info
+  if (!userInfo?.onboarded) redirect("/onboarding"); // Redirect to onboarding if not onboarded
 
-  const activity = await getActivity(userInfo._id);
+  const activity = await getActivity(userInfo._id); // Fetch the user's activity
 
+  // JSX for rendering the activity page
   return (
     <>
       <h1 className='head-text'>Activity</h1>
@@ -23,26 +24,12 @@ async function Page() {
           <>
             {activity.map((activity) => (
               <Link key={activity._id} href={`/thread/${activity.parentId}`}>
-                <article className='activity-card'>
-                  <Image
-                    src={activity.author.image}
-                    alt='user_logo'
-                    width={20}
-                    height={20}
-                    className='rounded-full object-cover'
-                  />
-                  <p className='!text-small-regular text-light-1'>
-                    <span className='mr-1 text-primary-500'>
-                      {activity.author.name}
-                    </span>{" "}
-                    replied to your thread
-                  </p>
-                </article>
+                {/* Individual activity card */}
               </Link>
             ))}
           </>
         ) : (
-          <p className='!text-base-regular text-light-3'>No activity yet</p>
+          <p className='!text-base-regular text-light-3'>No threads made yet</p>
         )}
       </section>
     </>
