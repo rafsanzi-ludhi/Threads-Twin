@@ -1,4 +1,3 @@
-import Image from "next/image"; // Import Next.js Image component for optimized image loading
 import Link from "next/link"; // Import Next.js Link for client-side navigation
 import { currentUser } from "@clerk/nextjs"; // Import Clerk function to get the current user
 import { redirect } from "next/navigation"; // Import Next.js redirect function
