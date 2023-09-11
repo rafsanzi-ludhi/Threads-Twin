@@ -1,3 +1,4 @@
+// Import the mongoose library for MongoDB interaction
 import mongoose from "mongoose";
 
 // Define the schema for a thread in a discussion platform
