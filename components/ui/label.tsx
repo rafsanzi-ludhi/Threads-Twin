@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 // Define label variants for styling
 const labelVariants = cva(
-  "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+  "font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
 );
 
 // Define the Label component using forwardRef for better React interop
