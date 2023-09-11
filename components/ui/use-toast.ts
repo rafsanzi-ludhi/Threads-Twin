@@ -80,7 +80,7 @@ const addToRemoveQueue = (toastId: string) => {
     toastTimeouts.delete(toastId)
     dispatch({
       type: "REMOVE_TOAST",
-      toastId: toastId,
+      toastId,
     })
   }, TOAST_REMOVE_DELAY)
 
@@ -176,11 +176,12 @@ function toast({ ...props }: Toast) {
 
     // Function to update a specific toast
 
-  const update = (props: ToasterToast) =>
-    dispatch({
-      type: "UPDATE_TOAST",
-      toast: { ...props, id },
-    })
+const update = (props: ToasterToast) =>
+  dispatch({
+    type: "UPDATE_TOAST",
+    toast: { ...props, id }, // `id` is already shorthand here
+  });
+
   const dismiss = () => dispatch({ type: "DISMISS_TOAST", toastId: id })
 
     // Function to dismiss a specific toast
@@ -198,10 +199,11 @@ function toast({ ...props }: Toast) {
   })
 
   return {
-    id: id,
+    id,
     dismiss,
     update,
   }
+
 }
 
 // Hook to use the toast functionality

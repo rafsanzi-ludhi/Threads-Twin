@@ -1,38 +1,44 @@
-TODO: 
+# Threads Clone
 
-- Backend display 
+## Introduction
+Welcome to my Threads clone project! Threads is a super popular app for threaded discussions, and I decided to create a clone of it to learn full-stack development. As someone who is very new to the realm of web development, I had a blast building this project. Every step of the way involved Googling, YouTubing, and a whole lot of debugging. If you're interested in how I built this or what I learned, read on!
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## What I Learned
+I learned a multitude of concepts, tools, and technologies in the process of building this Threads clone. Here's a summary:
 
-## Getting Started
+1. **Full-Stack Development**: Understood the complete flow from front-end to back-end.
+2. **React**: Got hands-on experience with React Hooks, State Management, and Components.
+4. **Backend Development**: Worked with Node.js and Express to create a RESTful API.
+5. **Database Operations**: Learned CRUD operations with MongoDB.
+6. **State Management**: Utilized Redux for state management.
+7. **Authentication**: Implemented user authentication using Clerk.
+8. **Server-Side Rendering**: Worked with Next.js for better SEO and performance.
+9. **Caching**: Used caching mechanisms to improve the efficiency of database queries.
+10. **Pagination**: Implemented pagination in the `fetchPosts` API.
 
-First, run the development server:
+## Technologies Used
+Here's a list of all the languages, frameworks, and tools I used:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+1. **Languages**: JavaScript, TypeScript
+2. **Front-end**: React, Next.js
+3. **Back-end**: Node.js, Express
+4. **Database**: MongoDB
+5. **State Management**: Redux
+6. **Authentication**: Clerk
+7. **Others**: Git, npm/yarn
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Using Clerk for Authentication
+I used Clerk for handling user authentication. Clerk is a full-fledged user management and authentication service that makes it easier to implement secure and scalable authentication without reinventing the wheel. It saved me a lot of time, and I could focus more on the app's main functionalities.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Future Improvements
+I enjoyed working on this project a lot, and here's how I plan to improve it next time:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. **Code Refactoring**: Clean up the code to make it more readable and maintainable.
+2. **Unit Tests**: Add a comprehensive set of unit tests to ensure everything works as expected.
+3. **Optimization**: Further optimize database queries and implement lazy loading.
+4. **Real-time Features**: Add real-time updates using WebSockets.
+5. **Mobile Responsiveness**: Make the UI mobile-friendly.
+6. **Advanced Features**: Implement more features like tagging, mentions, and notifications.
+7. **Deployment**: Learn and apply CI/CD concepts for automatic deployment.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Feel free to dive into the code and hit me up if you have any questions. Happy coding! 😊
